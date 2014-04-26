@@ -4,5 +4,8 @@
     <string name="app_name">Daily Expense Viewer</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="intro_text">Please add your daily expense after picking the dates</string>
+    <string name="currency">KM</string>
+    <string name="amount">Cost</string>
 
 </resources>

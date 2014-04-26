@@ -9,8 +9,36 @@
     tools:context="com.example.dailyexpenseviewer.MainActivity$PlaceholderFragment" >
 
     <TextView
+        android:id="@+id/intro_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/intro_text" />
+    <Button 
+        android:id="@+id/dates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_below="@id/intro_text"
+        android:layout_alignParentLeft="true"
+        android:onClick="showDatePickerDialog"
+        />
+    <EditText 
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dates"
+        android:layout_alignParentLeft="true"
+       
+        android:hint="@string/amount"
+        />
+    <EditText 
+        android:id="@+id/currency"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dates"
+     
+        android:layout_toRightOf="@id/amount"
+        android:hint="@string/currency"
+        />
+
 
 </RelativeLayout>
