@@ -9,5 +9,6 @@
     <string name="amount">Cost</string>
     <string name="date_text">Please pick a date</string>
     <string name="submit_expense_text">Add Expense</string>
+    <string name="description_hint">Short description of expense</string>
 
 </resources>

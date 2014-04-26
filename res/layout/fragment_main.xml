@@ -38,11 +38,19 @@
         android:layout_alignParentRight="true"
         android:hint="@string/currency"
         />
-	<Button 
+    <EditText 
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/currency"
+        android:layout_alignParentRight="true"
+        android:hint="@string/description_hint"
+        />
+    <Button 
 	    android:id="@+id/submit_expense"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:layout_below="@id/currency"
+	    android:layout_below="@id/description"
 	    android:layout_alignParentRight="true"
 	    android:text="@string/submit_expense_text"
 	    />
