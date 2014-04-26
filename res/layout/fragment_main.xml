@@ -18,7 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/intro_text"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/date_text"
         android:onClick="showDatePickerDialog"
         />
     <EditText 
@@ -26,8 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/dates"
-        android:layout_alignParentLeft="true"
-       
+        android:layout_toLeftOf="@id/currency"
         android:hint="@string/amount"
         />
     <EditText 
@@ -35,10 +35,16 @@
         android:layout_width="96dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/dates"
-     
-        android:layout_toRightOf="@id/amount"
+        android:layout_alignParentRight="true"
         android:hint="@string/currency"
         />
-
+	<Button 
+	    android:id="@+id/submit_expense"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/currency"
+	    android:layout_alignParentRight="true"
+	    android:text="@string/submit_expense_text"
+	    />
 
 </RelativeLayout>
