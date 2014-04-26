@@ -13,20 +13,34 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
+	
+//	private TextView tvDateViewer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if (savedInstanceState == null) {
+        
+         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+//         Spinner spinner = (Spinner) findViewById(R.id.currency);
+//         // Create an ArrayAdapter using the string array and a default spinner layout
+//         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+//              R.array.currency_array, android.R.layout.simple_spinner_item);
+//         // Specify the layout to use when the list of choices appears
+//         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//         // Apply the adapter to the spinner
+//         spinner.setAdapter(adapter);
     }
 
 
@@ -49,6 +63,7 @@ public class MainActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    
 
     /**
      * A placeholder fragment containing a simple view.
@@ -67,21 +82,37 @@ public class MainActivity extends ActionBarActivity {
     }
     
     public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
-    	 @Override
-    	    public Dialog onCreateDialog(Bundle savedInstanceState) {
-    	        // Use the current date as the default date in the picker
-    	        final Calendar c = Calendar.getInstance();
-    	        int year = c.get(Calendar.YEAR);
-    	        int month = c.get(Calendar.MONTH);
-    	        int day = c.get(Calendar.DAY_OF_MONTH);
 
-    	        // Create a new instance of DatePickerDialog and return it
-    	        return new DatePickerDialog(getActivity(), this, year, month, day);
-    	    }
+    	public TextView tvDateViewer;
+    	
+    	@Override
+    	public Dialog onCreateDialog(Bundle savedInstanceState) {
+    		// Use the current date as the default date in the picker
+    		final Calendar c = Calendar.getInstance();
+    		int year = c.get(Calendar.YEAR);
+    		int month = c.get(Calendar.MONTH);
+    		int day = c.get(Calendar.DAY_OF_MONTH);
 
-    	    public void onDateSet(DatePicker view, int year, int month, int day) {
-    	        // Do something with the date chosen by the user
-    	    }
+    		// Create a new instance of DatePickerDialog and return it
+    		return new DatePickerDialog(getActivity(), this, year, month, day);
+    	}	
+
+    	public void onDateSet(DatePicker view, int year, int month, int day) {
+    		// Do something with the date chosen by the user
+    		TextView tvDateViewer = (TextView)getActivity().findViewById (R.id.dateViewer);
+    		tvDateViewer.setText(new StringBuilder()
+				// Month is 0 based, just add 1
+				.append(day).append("-").append(month + 1).append("-")
+				.append(year).append(" "));
+    	}
     }
+    
+    public void showDatePickerDialog(View v) {
+
+    		DialogFragment newFragment = new DatePickerFragment();
+    		newFragment.show(getFragmentManager(), "datePicker");
+
+    }
+
 
 }
